@@ -1,0 +1,17 @@
+inbound,tcp,999,127.0.0.1
+inbound,udp,8082,192.65.4.1
+inbpund,tcp,1-125,202.4.3.77
+outbound,udp,65535,10.0.0.4
+outbound,udp,515,100.200.0.0
+inbound,udp,3000,255.0.0.0
+inbound,udp,27017,10.10.10.10
+outbound,udp,555,9.9.1.4
+inbound,tcp,641-651,200.100.0.100
+inbound,udp,100,192.168.1.2-255.255.255.255
+inbound,udp,100,192.168.100.3
+outbound,tcp,8080,0.0.0.0-127.0.0.1
+inbound,tcp,80,192.168.1.2
+outbound,tcp,10000-20000,192.168.10.11
+inbound,udp,53,192.168.1.1-192.168.2.5
+outbound,udp,1000-2000,52.12.48.92
+inbound,udp,1-65535,0.0.0.1
