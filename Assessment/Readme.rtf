@@ -3,11 +3,12 @@
 #Test: Junit
 #IDE: Eclipse
 
+
 #Approach:
 General approach was to save the rules in the database and retrieve the records to see if the packet is allowed or blocked.
 
 1. I've used mongoDB not SQL databases because I wanted to store the ip_address both as a single value and in range also.
-2. I've used deprecated method of mongo in one instance as I had limited time and the other methods were not able to connect to my mongodb and were giving me exceptions.\
+2. I've used deprecated method of mongo in one instance as I had limited time and the other methods were not able to connect to my mongodb and were giving me exceptions.
 3. While testing I've tried every edgecases and use-cases I can think of.
 4. If I had time, I would've optimize the insertion part of the database as right now multiple entries can be same.
 5. Also, to make it more optimized I would've used the indexes in the java code.
@@ -24,7 +25,7 @@ General approach was to save the rules in the database and retrieve the records 
 	- port
 	-ip_address
 
- 2. Everything that is passed in the rules files and in the accept_packet method are valid inputs and are according to the problem description.\
+ 2. Everything that is passed in the rules files and in the accept_packet method are valid inputs and are according to the problem description.
 
 
 #Future Work
