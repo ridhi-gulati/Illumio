@@ -1,72 +1,39 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
-{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
-{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid201\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
-\margl1440\margr1440\vieww28600\viewh15460\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+#Language Used : Java
+#Database: Mongodb
+#Test: Junit
+#IDE: Eclipse
 
-\f0\b\fs24 \cf0 Language Used : Java\
-Database: Mongodb\
-Test: Junit\
-IDE: Eclipse
-\fs28 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-Approach
-\b0\fs24 \
-\
+#Approach:
+General approach was to save the rules in the database and retrieve the records to see if the packet is allowed or blocked.
 
-\i General approach was to save the rules in the database and retrieve the records to see if the packet is allowed or blocked.\
+1. I've used mongoDB not SQL databases because I wanted to store the ip_address both as a single value and in range also.
+2. I've used deprecated method of mongo in one instance as I had limited time and the other methods were not able to connect to my mongodb and were giving me exceptions.\
+3. While testing I've tried every edgecases and use-cases I can think of.
+4. If I had time, I would've optimize the insertion part of the database as right now multiple entries can be same.
+5. Also, to make it more optimized I would've used the indexes in the java code.
+6. Tried to comment as much as I can to make it reader friendly.
+7. Used API docs and stackoverflow to refer the functions and usage.
+8. Used JUnit Test for the cases provided in the description.
+9. Once the data is loaded my code runs fast, I think the only drawback might be the redundant entries.
+10. I've tried with million records, which is attached in the screenshot as well.
 
-\i0 \
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls1\ilvl0\cf0 {\listtext	1.	}I\'92ve used mongoDB not SQL databases because I wanted to store the ip_address both as a single value and in range also.\
-{\listtext	2.	}I\'92ve used deprecated method of mongo in one instance as I had limited time and the other methods were not able to connect to my mongodb and were giving me exceptions.\
-{\listtext	3.	}While testing I\'92ve tried every 
-\b edgecases
-\b0  and use-cases I can think of.\
-{\listtext	4.	}If I had time, I would\'92ve optimize the 
-\b insertion
-\b0  part of the database as right now multiple entries can be same.\
-{\listtext	5.	}Also, to make it more optimized I would\'92ve used the 
-\b indexes
-\b0  in the java code.\
-{\listtext	6.	}Tried to comment as much as I can to make it reader friendly.\
-{\listtext	7.	}Used API docs and stackoverflow to refer the functions and usage.\
-{\listtext	8.	}Used JUnit Test for the cases provided in the description.\
-{\listtext	9.	}Once the data is loaded my code runs fast, I think the only drawback might be the redundant entries.\
-{\listtext	10.	}I\'92ve tried with million records, which is attached in the screenshot as well.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+#Assumptions
+1. The files with the rules have following columns in order.
+	- Direction
+	- protocol
+	- port
+	-ip_address
 
-\b\fs28 \cf0 Assumptions
-\fs26 \
+ 2. Everything that is passed in the rules files and in the accept_packet method are valid inputs and are according to the problem description.\
 
-\b0\fs24 \
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls2\ilvl0\cf0 {\listtext	1.	}The files with the rules have following columns in order.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 	- Direction\
-	- protocol\
-	- port\
-	-ip_address\
-\
-   2.    Everything that is passed in the rules files and in the accept_packet method are valid inputs and are according to the problem description.\
-\
 
-\b\fs28 Future Work
-\b0\fs24 \
-\
-\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural\partightenfactor0
-\ls3\ilvl0\cf0 {\listtext	1.	}Adding Indexes to the collection.\
-{\listtext	2.	}Adding checks to eliminate duplicate entries.\
-{\listtext	3.	}Adding checks for the input file data\
-{\listtext	4.	}Remove deprecated methods.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-}
+#Future Work
+1. Adding Indexes to the collection.
+2. Adding checks to eliminate duplicate entries.
+3. Adding checks for the input file data
+4. Remove deprecated methods.
+
+#Preference for position:
+1. Platform Team
+2. Data Team
+3. Policy Team
